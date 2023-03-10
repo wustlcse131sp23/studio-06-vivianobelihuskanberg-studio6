@@ -76,7 +76,7 @@ public class RecursiveMethods {
 	
 	public static int[] helper(int startIndex, int endIndex, int[] array, int[] copy)
 	{
-		if (startIndex >= endIndex)
+		if (endIndex < 0)
 		{
 			return copy;
 		}
@@ -94,10 +94,24 @@ public class RecursiveMethods {
 	 *                                      depth
 	 * @param radiusMinimumDrawingThreshold radius above which drawing should occur
 	 */
-	public static void circlesUponCircles(double xCenter, double yCenter, double radius,
-			double radiusMinimumDrawingThreshold) {
-		
+	public static void circlesUponCircles(double xCenter, double yCenter, double radius, double radiusMinimumDrawingThreshold) 
+	{
 		// FIXME
+		if (radius < radiusMinimumDrawingThreshold)
+		{
+			return;
+		}
+		//else
+		{
+			StdDraw.circle(xCenter, yCenter, radius);
+			circlesUponCircles(xCenter, yCenter + radius, radius/3, radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter, yCenter - radius, radius/3, radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter + radius, yCenter, radius/3, radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter - radius, yCenter, radius/3, radiusMinimumDrawingThreshold);
+			
+			
+		}
+		
 	}
 
 }
