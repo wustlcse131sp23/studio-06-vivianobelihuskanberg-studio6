@@ -67,8 +67,8 @@ public class RecursiveMethods {
 	{
 		
 			// FIXME create a helper method that can recursively reverse the given array
-		int[] copy = new int[array.length];
-		return helper(0, array.length - 1, array, copy);
+		int[] copy = new int[array.length];		//non recursive part of code (so we don't keep initializing copy)
+		return helper(0, array.length - 1, array, copy);	// use this helper method so the helper is the only part of the method using recursion
 		
 			//return new int[0];
 		
