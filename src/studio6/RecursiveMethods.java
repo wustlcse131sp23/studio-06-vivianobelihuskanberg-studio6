@@ -104,14 +104,18 @@ public class RecursiveMethods {
 		//else
 		{
 			StdDraw.circle(xCenter, yCenter, radius);
-			circlesUponCircles(xCenter, yCenter + radius, radius/3, radiusMinimumDrawingThreshold);
-			circlesUponCircles(xCenter, yCenter - radius, radius/3, radiusMinimumDrawingThreshold);
-			circlesUponCircles(xCenter + radius, yCenter, radius/3, radiusMinimumDrawingThreshold);
-			circlesUponCircles(xCenter - radius, yCenter, radius/3, radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter, yCenter + radius, radius/3, radiusMinimumDrawingThreshold);	// first, continuously draws top circles until it hits the base case
+			circlesUponCircles(xCenter, yCenter - radius, radius/3, radiusMinimumDrawingThreshold);	// second, continuously draws bottom circles until base case
+			circlesUponCircles(xCenter + radius, yCenter, radius/3, radiusMinimumDrawingThreshold);	// third, continuously draws right circles
+			circlesUponCircles(xCenter - radius, yCenter, radius/3, radiusMinimumDrawingThreshold); // last, continuously draws left circles until base case
 			
 			
 		}
 		
 	}
+	
+	public static void main(String[] args) {
+		circlesUponCircles(0.5, 0.5, 0.25, 0.25/9);		// I used this function call and the debugger tool to manually step through the function and individually see each change on the canvas
+		}
 
 }
